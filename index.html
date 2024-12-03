@@ -1,32 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
-<link rel="stylesheet" href="styles.css">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reserva</title>
+    <title>Reservas</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <div class="container">
     <h1>Reservas</h1>
-    <div class="nav-tabs">
-        <button class="tab active">Fecha</button>
-        <button class="tab">Función</button>
-        <button class="tab">Asientos</button>
-        <button class="tab">Confirmar</button>
-    </div>
-    <div class="form">
-        <label for="fecha">Seleccione una fecha:</label>
-        <input type="date" id="fecha" value="2024-09-23">
-        <label for="tipoReserva">Seleccione un tipo de reserva:</label>
-        <select id="tipoReserva">
-            <option value="ONLINE">ONLINE</option>
-            <option value="PRESENCIAL">PRESENCIAL</option>
-        </select>
+    <!-- Tabs -->
+    <div class="tabs">
+        <div class="tab active" data-tab="fecha">Fecha</div>
+        <div class="tab" data-tab="funcion">Función</div>
+        <div class="tab" data-tab="asientos">Asientos</div>
+        <div class="tab" data-tab="confirmar">Confirmar</div>
+    </div> <!-- Tabs -->
+    <!-- Contenido de las pestañas -->
+    <div class="tab-content" id="fecha">
+        <h2>Seleccione una fecha:</h2>
+        <input type="text" placeholder="YYYY-MM-DD">
+        <h2>Seleccione un tipo de reserva:</h2>
+        <input type="text" placeholder="Tipo de reserva">
         <button id="nextBtn">Next</button>
     </div>
+    <div class="tab-content hidden" id="funcion">
+        <h2>Contenido de Función</h2>
+    </div>
+    <div class="tab-content hidden" id="asientos">
+        <h2>Contenido de Asientos</h2>
+    </div>
+    <div class="tab-content hidden" id="confirmar">
+        <h2>Contenido de Confirmar</h2>
+    </div>
 </div>
-<script src="script.js"></script>
+<script src="src/Cuerpo/script.js"></script>
 </body>
 </html>
