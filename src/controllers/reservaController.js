@@ -7,7 +7,7 @@ const findRange = async (req, res) => {
         return res.status(422).json({ error: 'Parámetros inválidos' });
     }
 
-    try {
+    try{
         const data = await ReservaService.findRange(Number(first), Number(max));
         const totalRecords = await ReservaService.count();
         res.header('Total-Records', totalRecords).json(data);
