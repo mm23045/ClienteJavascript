@@ -82,3 +82,74 @@ button {
 button:hover {
     background-color: #036aa5;
 }
+
+/* Estilos para la pestaña de asientos */
+.seating-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.seating-column {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}
+
+.seating-column h2 {
+    margin-bottom: 10px;
+}
+
+.search {
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+select {
+    width: 100%;
+    height: 150px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #ffffff;
+    color: #000000;
+    padding: 5px;
+}
+
+.seating-controls {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.seating-controls button {
+    width: 50px;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #047bbd;
+    color: white;
+    cursor: pointer;
+}
+
+.seating-controls button:hover {
+    background-color: #036aa5;
+}
+
+#nextSeats {
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px;
+    background-color: #047bbd;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+#nextSeats:hover {
+    background-color: #036aa5;
+}

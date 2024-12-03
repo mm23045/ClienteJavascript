@@ -29,6 +29,30 @@
     </div>
     <div class="tab-content hidden" id="asientos">
         <h2>Contenido de Asientos</h2>
+            <div class="seating-container">
+                <div class="seating-column">
+                    <h2>Asientos Disponibles</h2>
+                    <input type="text" placeholder="Buscar..." class="search">
+                    <select id="availableSeats" multiple>
+                        <option>asiento_1</option>
+                        <option>asiento_2</option>
+                        <option>asiento_3</option>
+                        <option>asiento_4</option>
+                        <option>asiento_5</option>
+                        <option>asiento_6</option>
+                    </select>
+                </div>
+                <div class="seating-controls">
+                    <button id="addSeat">>></button>
+                    <button id="removeSeat"><<</button>
+                </div>
+                <div class="seating-column">
+                    <h2>Asientos Seleccionados</h2>
+                    <input type="text" placeholder="Buscar..." class="search">
+                    <select id="selectedSeats" multiple></select>
+                </div>
+            </div>
+            <button id="nextSeats">Next</button>
     </div>
     <div class="tab-content hidden" id="confirmar">
         <h2>Contenido de Confirmar</h2>

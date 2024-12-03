@@ -1,6 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
     const tabs = document.querySelectorAll('.tab');
     const tabContents = document.querySelectorAll('.tab-content');
+    const availableSeats = document.getElementById('availableSeats');
+    const selectedSeats = document.getElementById('selectedSeats');
+    const addSeatButton = document.getElementById('addSeat');
+    const removeSeatButton = document.getElementById('removeSeat');
 
     // Cambiar entre pestañas
     tabs.forEach(tab => {
@@ -19,6 +23,20 @@ document.addEventListener('DOMContentLoaded', () => {
                     content.classList.add('hidden');
                 }
             });
+        });
+    });
+
+    // Mover asientos disponibles a seleccionados
+    addSeatButton.addEventListener('click', () => {
+        Array.from(availableSeats.selectedOptions).forEach(option => {
+            selectedSeats.appendChild(option);
+        });
+    });
+
+    // Mover asientos seleccionados a disponibles
+    removeSeatButton.addEventListener('click', () => {
+        Array.from(selectedSeats.selectedOptions).forEach(option => {
+            availableSeats.appendChild(option);
         });
     });
 });
