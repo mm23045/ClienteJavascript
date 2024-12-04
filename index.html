@@ -11,50 +11,65 @@
     <h1>Reservas</h1>
     <!-- Tabs -->
     <div class="tabs">
-        <div class="tab active" data-tab="fecha">Fecha</div>
-        <div class="tab" data-tab="funcion">Función</div>
-        <div class="tab" data-tab="asientos">Asientos</div>
-        <div class="tab" data-tab="confirmar">Confirmar</div>
+        <div class="tab active" data-tab="tab-fecha">Fecha</div>
+        <div class="tab" data-tab="tab-funcion">Función</div>
+        <div class="tab" data-tab="tab-asientos">Asientos</div>
+        <div class="tab" data-tab="tab-confirmar">Confirmar</div>
     </div> <!-- Tabs -->
+
     <!-- Contenido de las pestañas -->
-    <div class="tab-content" id="fecha">
-        <h2>Seleccione una fecha:</h2>
-        <input type="text" placeholder="YYYY-MM-DD">
-        <h2>Seleccione un tipo de reserva:</h2>
-        <input type="text" placeholder="Tipo de reserva">
-        <button id="nextBtn">Next</button>
+    <div class="tab-content" id="tab-fecha">
+        <!-- Seleccionar Fecha -->
+        <div>
+            <label for="fechaInput">Seleccione una fecha:</label>
+            <input type="date" id="fechaInput" required />
+        </div>
+        <!-- Seleccionar Tipo de Reserva -->
+        <div>
+            <label for="tipoReserva">Seleccione un tipo de reserva:</label>
+            <select id="tipoReserva" required>
+                <option value="" disabled selected>Seleccione una opción</option>
+                <option value="online">Online</option>
+                <option value="presencial">Presencial</option>
+            </select>
+        </div>
+        <!-- Botón Next -->
+        <div>
+            <button id="nextButton">Next</button>
+        </div>
     </div>
-    <div class="tab-content hidden" id="funcion">
+
+    <div class="tab-content hidden" id="tab-funcion">
         <h2>Contenido de Función</h2>
     </div>
-    <div class="tab-content hidden" id="asientos">
+    <div class="tab-content hidden" id="tab-asientos">
         <h2>Contenido de Asientos</h2>
-            <div class="seating-container">
-                <div class="seating-column">
-                    <h2>Asientos Disponibles</h2>
-                    <input type="text" placeholder="Buscar..." class="search">
-                    <select id="availableSeats" multiple>
-                        <option>asiento_1</option>
-                        <option>asiento_2</option>
-                        <option>asiento_3</option>
-                        <option>asiento_4</option>
-                        <option>asiento_5</option>
-                        <option>asiento_6</option>
-                    </select>
-                </div>
-                <div class="seating-controls">
-                    <button id="addSeat">>></button>
-                    <button id="removeSeat"><<</button>
-                </div>
-                <div class="seating-column">
-                    <h2>Asientos Seleccionados</h2>
-                    <input type="text" placeholder="Buscar..." class="search">
-                    <select id="selectedSeats" multiple></select>
-                </div>
+        <div class="seating-container">
+            <div class="seating-column">
+                <h2>Asientos Disponibles</h2>
+                <input type="text" placeholder="Buscar..." class="search">
+                <select id="availableSeats" multiple>
+                    <option>asiento_1</option>
+                    <option>asiento_2</option>
+                    <option>asiento_3</option>
+                    <option>asiento_4</option>
+                    <option>asiento_5</option>
+                    <option>asiento_6</option>
+                </select>
             </div>
-            <button id="nextSeats">Next</button>
+            <div class="seating-controls">
+                <button id="addSeat">>></button>
+                <button id="removeSeat"><<</button>
+            </div>
+            <div class="seating-column">
+                <h2>Asientos Seleccionados</h2>
+                <input type="text" placeholder="Buscar..." class="search">
+                <select id="selectedSeats" multiple></select>
+            </div>
+        </div>
+        <button id="nextSeats">Next</button>
     </div>
-    <div class="tab-content hidden" id="confirmar">
+    <div class="tab-content hidden" id="tab-confirmar">
         <h2>Contenido de Confirmar</h2>
     </div>
 </div>

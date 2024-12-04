@@ -153,3 +153,18 @@ select {
 #nextSeats:hover {
     background-color: #036aa5;
 }
+
+#tab-fecha div {
+    margin-bottom: 1rem;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+input, select, button {
+    padding: 0.5rem;
+    font-size: 1rem;
+}
