@@ -1,59 +1,49 @@
-const ReservaService = require('../services/reservaServices');
+const db = require('../models');
+const Reserva = db.Reserva;
 
-const findRange = async (req, res) => {
+// Obtener registros con paginación
+exports.findRange = async (req, res) => {
     const { first = 0, max = 50 } = req.query;
 
-    if (first < 0 || max <= 0 || max > 50) {
-        return res.status(422).json({ error: 'Parámetros inválidos' });
-    }
-
-    try{
-        const data = await ReservaService.findRange(Number(first), Number(max));
-        const totalRecords = await ReservaService.count();
-        res.header('Total-Records', totalRecords).json(data);
-    } catch (err) {
-        console.error('Error en findRange:', err);
-        res.status(500).json({ error: 'Error interno del servidor' });
+    if (first >= 0 && max > 0 && max <= 50) {
+        try {
+            const reservas = await Reserva.findAll({ offset: parseInt(first), limit: parseInt(max) });
+            const total = await Reserva.count();
+            res.setHeader('Total-Records', total);
+            res.json(reservas);
+        } catch (error) {
+            console.error(error);
+            res.status(500).send('Error al obtener las reservas');
+        }
+    } else {
+        res.status(422).send('Parámetros inválidos');
     }
 };
 
-const findById = async (req, res) => {
+// Obtener un registro por ID
+exports.findById = async (req, res) => {
     const { id } = req.params;
 
-    if (!id) {
-        return res.status(422).json({ error: 'ID inválido' });
-    }
     try {
-        const reserva = await ReservaService.findById(Number(id));
+        const reserva = await Reserva.findByPk(id);
         if (reserva) {
             res.json(reserva);
         } else {
-            res.status(404).json({ error: `Reserva con ID ${id} no encontrada` });
+            res.status(404).send('Reserva no encontrada');
         }
-    } catch (err) {
-        console.error('Error en findById:', err);
-        res.status(500).json({ error: 'Error interno del servidor' });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error del servidor');
     }
 };
 
-const create = async (req, res) => {
-    const { body } = req;
-
-    if (!body || body.idReserva) {
-        return res.status(422).json({ error: 'Datos inválidos' });
-    }
-
+// Crear una nueva reserva
+exports.create = async (req, res) => {
     try {
-        const newReserva = await ReservaService.create(body);
-        res.status(201).json(newReserva);
-    } catch (err) {
-        console.error('Error en create:', err);
-        res.status(500).json({ error: 'Error interno del servidor' });
+        const nuevaReserva = await Reserva.create(req.body);
+        res.status(201).json(nuevaReserva);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al crear la reserva');
     }
-};
-
-module.exports = {
-    findRange,
-    findById,
-    create,
 };
