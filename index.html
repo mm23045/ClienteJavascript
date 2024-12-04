@@ -29,14 +29,14 @@
         </div>
         <!-- Botón Next -->
         <div>
-            <button id="nextButton" onclick="storeDate()">Next</button>
+            <button id="nextButton" onclick="storeDate(); showTab('tab-funcion')">Next</button>
         </div>
     </div>
 
     <div class="tab-content hidden" id="tab-funcion">
         <h2>Selecciona una funcion :</h2>
         <input type ="text" required />
-
+        <button id="nextFunction" onclick="showTab('tab-asientos')">Next</button>
     </div>
     <div class="tab-content hidden" id="tab-asientos">
         <h2>Contenido de Asientos</h2>
@@ -63,12 +63,13 @@
                 <select id="selectedSeats" multiple></select>
             </div>
         </div>
-        <button id="nextSeats">Next</button>
+        <button id="nextSeats" onclick="showTab('tab-confirmar')">Next</button>
     </div>
     <div class="tab-content hidden" id="tab-confirmar">
         <h4>Fecha seleccionada :</h4>
         <input id="selectedDateInput">
         <h4>Tipo de reserva :</h4>
+        <input id="1" value="ONLINE" readonly>
         <h4 Función seleccionada :></h4>
         <h4>Asientos seleccionados :</h4>
     </div>
@@ -81,6 +82,11 @@
         const formattedDate = `${day}/${month}/${year}`;
         localStorage.setItem('selectedDate', formattedDate);
         document.getElementById('selectedDateInput').value = formattedDate;
+    }
+    function showTab(tabId) {
+        const tabs = document.querySelectorAll('.tab-content');
+        tabs.forEach(tab => tab.classList.add('hidden'));
+        document.getElementById(tabId).classList.remove('hidden');
     }
 </script>
 </body>
