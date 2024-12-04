@@ -16,7 +16,6 @@
         <div class="tab" data-tab="tab-asientos">Asientos</div>
         <div class="tab" data-tab="tab-confirmar">Confirmar</div>
     </div> <!-- Tabs -->
-
     <!-- Contenido de las pestañas -->
     <div class="tab-content" id="tab-fecha">
         <!-- Seleccionar Fecha -->
@@ -26,17 +25,11 @@
         </div>
         <!-- Seleccionar Tipo de Reserva -->
         <div>
-            <label for="tipoReserva">Seleccione un tipo de reserva:</label>
-            <select id="tipoReserva" required>
-                <option value="" disabled selected>Seleccione una opción</option>
-                <option value="ONLINE">Online</option>
-                <option value="PRESENCIAL">Presencial</option>
-                <option value="PROMOCIONES">Promociones</option>
-            </select>
+            <input value = "1" hidden id="tipoReserva"/>
         </div>
         <!-- Botón Next -->
         <div>
-            <button id="nextButton">Next</button>
+            <button id="nextButton" onclick="storeDate()">Next</button>
         </div>
     </div>
 
@@ -74,11 +67,21 @@
     </div>
     <div class="tab-content hidden" id="tab-confirmar">
         <h4>Fecha seleccionada :</h4>
+        <input id="selectedDateInput">
         <h4>Tipo de reserva :</h4>
         <h4 Función seleccionada :></h4>
         <h4>Asientos seleccionados :</h4>
     </div>
 </div>
 <script src="src/Cuerpo/script.js"></script>
+<script>
+    function storeDate() {
+        const fechaInput = document.getElementById('fechaInput').value;
+        const [year, month, day] = fechaInput.split('-');
+        const formattedDate = `${day}/${month}/${year}`;
+        localStorage.setItem('selectedDate', formattedDate);
+        document.getElementById('selectedDateInput').value = formattedDate;
+    }
+</script>
 </body>
 </html>

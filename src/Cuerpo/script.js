@@ -57,7 +57,6 @@ class Reservas {
             });
         });
     }
-
     // Configuración del botón Next en la pestaña Fecha
     setupNextButton() {
         this.nextButton.addEventListener('click', () => {

@@ -23,9 +23,18 @@ const count = async () => {
     return await db.Reserva.count();
 };
 
+// Obtener todos los tipos de reserva
+const findAllTiposReserva = async () => {
+    return await db.Reserva.findAll({
+        attributes: ['campo1'], // Ajusta según el nombre del campo que contiene el tipo de reserva
+        group: ['campo1']
+    });
+};
+
 module.exports = {
     findRange,
     findById,
     create,
     count,
+    findAllTiposReserva,
 };

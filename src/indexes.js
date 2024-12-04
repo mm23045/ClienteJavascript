@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const db = require('./db.js');//TODO: Revisar si la ruta es correcta
+const db = require('db');//TODO: Revisar si la ruta es correcta
 const reservaRoutes = require('./routes/reservaRoutes');
 
 const app = express();
