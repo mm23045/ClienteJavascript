@@ -1,4 +1,4 @@
-const db = require('../models');
+const db = require('../../db.js');//TODO:nose si esta bien la ruta
 const Reserva = db.Reserva;
 
 // Obtener registros con paginación

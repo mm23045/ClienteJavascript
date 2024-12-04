@@ -1,21 +1,26 @@
-const data = []; // Datos simulados
+const db = require('../../db.js');
 
+// Obtener un rango de reservas
 const findRange = async (first, max) => {
-    return data.slice(first, first + max);
+    return await db.Reserva.findAll({
+        offset: first,
+        limit: max,
+    });
 };
 
+// Buscar una reserva por ID
 const findById = async (id) => {
-    return data.find((reserva) => reserva.idReserva === id);
+    return await db.Reserva.findByPk(id);
 };
 
+// Crear una nueva reserva
 const create = async (reserva) => {
-    const newReserva = { idReserva: data.length + 1, ...reserva };
-    data.push(newReserva);
-    return newReserva;
+    return await db.Reserva.create(reserva);
 };
 
+// Contar todas las reservas
 const count = async () => {
-    return data.length;
+    return await db.Reserva.count();
 };
 
 module.exports = {

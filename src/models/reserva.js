@@ -5,7 +5,6 @@ module.exports = (sequelize, DataTypes) => {
             primaryKey: true,
             autoIncrement: true,
         },
-        // Otros campos de la tabla
         campo1: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -14,10 +13,17 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false,
         },
+        // Otros campos de la tabla
+        fechaReserva: {
+            type: DataTypes.DATE,
+            allowNull: false,
+        },
     }, {
-        tableName: 'Reserva',
+        tableName: 'tipo_reserva', // Asegúrate que coincida con el nombre real de la tabla
         timestamps: false,
     });
 
     return Reserva;
 };
+
+
